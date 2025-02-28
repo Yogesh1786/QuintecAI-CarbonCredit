@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-slate-900 shadow-lg" : "bg-slate-900 shadow-lg"
       }`}
       role="navigation"
     >
@@ -35,42 +35,42 @@ const Navbar = () => {
               className="h-10 w-12 sm:h-14 sm:w-14 rounded-2xl shadow-lg transform group-hover:scale-110 transition-transform duration-300"
             />
           </div>
-          <span className="font-bold text-xl sm:text-2xl md:text-3xl tracking-wider text-gray-700">
+          <span className="font-bold text-xl sm:text-2xl md:text-3xl tracking-wider text-white">
             Quintessence <br /> Technologies
           </span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-12 items-center space-x-6 lg:space-x-8 text-lg font-semibold text-gray-700">
+        <div className="hidden md:flex gap-12 items-center space-x-6 lg:space-x-8 text-lg font-semibold text-white">
           <Link
             to="/"
-            className="relative group hover:text-indigo-600 transition-all duration-300"
+            className="relative group hover:text-blue-500 transition-all duration-300"
             aria-label="Navigate to Home"
           >
             Home
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
           </Link>
           <Link
             to="/dashboard"
-            className="relative group hover:text-indigo-600 transition-all duration-300"
+            className="relative group hover:text-blue-500 transition-all duration-300"
             aria-label="Navigate to Research"
           >
             Dashboard
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
           </Link>
           <Link
             to="/cart"
-            className="relative group hover:text-indigo-600 transition-all duration-300"
+            className="relative group hover:text-blue-500 transition-all duration-300"
             aria-label="Go to Cart"
           >
             Cart
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-all duration-300" />
           </Link>
 
           {/* Login/Signup Icon */}
           <Link
             to="/login"
-            className="ml-4 text-gray-700 hover:text-indigo-600 relative"
+            className="ml-4 text-white hover:text-blue-500 relative"
             aria-label="Login/Signup"
           >
             <svg
@@ -115,11 +115,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-40">
-          <ul className="flex flex-col items-center space-y-4 py-6 font-semibold text-gray-700">
+        <div className="md:hidden absolute top-16 left-0 w-full bg-slate-900 shadow-lg z-40">
+          <ul className="flex flex-col items-center space-y-4 py-6 font-semibold text-white">
             <Link
               to="/"
-              className="hover:text-indigo-600 transition-all duration-300"
+              className="hover:text-blue-500 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Go to Home"
             >
@@ -127,15 +127,15 @@ const Navbar = () => {
             </Link>
             <Link
               to="/research"
-              className="hover:text-indigo-600 transition-all duration-300"
+              className="hover:text-blue-500 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Go to Research"
             >
-              Research
+              Dashboard
             </Link>
             <Link
               to="/cart"
-              className="hover:text-indigo-600 transition-all duration-300"
+              className="hover:text-blue-500 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Go to Cart"
             >
@@ -143,7 +143,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/login"
-              className="hover:text-indigo-600 transition-all duration-300"
+              className="hover:text-blue-500 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Login"
             >

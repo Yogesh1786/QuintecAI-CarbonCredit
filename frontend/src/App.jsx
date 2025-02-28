@@ -10,7 +10,7 @@ import Industry from "./components/home/Industry";
 
 const App = () => (
   <BrowserRouter>
-    <div className="font-sans bg-gray-50">
+    <div className="font-sans bg-slate-800">
       <Navbar />
       <div className="mt-20">
         <Routes>

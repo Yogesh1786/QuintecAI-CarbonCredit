@@ -1,0 +1,138 @@
+import FuelsComponent from "../../pages/scope-1/Fuels";
+import BioEnergyComponent from "../../pages/scope-1/BioEnergy";
+import RefrigerantsComponent from "../../pages/scope-1/Refrigerants";
+import PassengerVehicleComponent from "../../pages/scope-1/PassengerVehicle";
+import DeliveryVehicleComponent from "../../pages/scope-1/DeliveryVehicle";
+import DistrictCooling from "../../pages/scope-2/DistrictCooling";
+import Electricity from "../../pages/scope-2/Electricity";
+import EletricityForEvs from "../../pages/scope-2/EletricityForEvs";
+import HeatAndSteam from "../../pages/scope-2/HeatAndSteam";
+import MaterialUse from "../../pages/scope-3/MaterialUse";
+import WasteWater from "../../pages/scope-3/WasteWater";
+import Water from "../../pages/scope-3/Water";
+
+const scopeData = {
+  Scope1: {
+    title: "Scope 1 - Direct Emissions",
+    description:
+      "Direct greenhouse gas emissions from owned or controlled sources.",
+    tabs: {
+      Fuels:
+        "Emissions from the combustion of fossil fuels in stationary and mobile sources.",
+      BioEnergy:
+        "Carbon emissions from bio-based energy sources such as biomass and biofuels.",
+      Refrigerants: "Emissions from refrigerant leaks in cooling systems.",
+      PassengerVehicle:
+        "Carbon footprint from personal and business-related passenger transportation.",
+      DeliveryVehicle:
+        "Emissions from transportation and logistics vehicles used for deliveries.",
+    },
+  },
+  Scope2: {
+    title: "Scope 2 - Indirect Emissions",
+    description:
+      "Emissions from the generation of purchased electricity, steam, heating, and cooling.",
+    tabs: {
+      DistrictCooling:
+        "Emissions from centralized cooling systems used in buildings.",
+      Electricity:
+        "Carbon footprint from electricity purchased and used in operations.",
+      ElectricityForEvs:
+        "Indirect emissions from charging electric vehicles using purchased electricity.",
+      HeatAndSteam:
+        "Emissions from purchased heat, steam, or cooling for industrial use.",
+    },
+  },
+  Scope3: {
+    title: "Scope 3 - Other Indirect Emissions",
+    description:
+      "All other indirect emissions that occur in a company's value chain.",
+    tabs: {
+      MaterialUse:
+        "Emissions associated with raw material production and consumption.",
+      WasteWater: "Carbon impact of wastewater treatment and disposal.",
+      Water: "Emissions from water usage and distribution.",
+    },
+  },
+};
+
+
+{/* Scope Buttons */}
+      <div className=" space-x-6 mb-8 text-2xl">
+        {Object.keys(scopeData).map((scope) => (
+          <button
+            key={scope}
+            className={`px-6 py-4 font-medium rounded-2xl transition-all duration-300 
+              ${
+                selectedScope === scope
+                  ? "bg-blue-500 text-white"
+                  : "bg-white text-slate-950"
+              }
+              hover:bg-blue-500 hover:text-white`}
+            onClick={() => handleScopeClick(scope)}
+          >
+            {scopeData[scope].title}
+          </button>
+        ))}
+      </div>
+
+      {/* Scope Description & Tab Descriptions in One Card */}
+      {selectedScope && (
+        <div className="max-w-7xl mx-auto bg-slate-800 p-6 shadow-lg rounded-2xl mb-8">
+          <h2 className="text-3xl font-semibold text-white">
+            {scopeData[selectedScope].title}
+          </h2>
+          <p className="text-lg text-white mt-2">
+            {scopeData[selectedScope].description}
+          </p>
+
+          {/* Automatically Show All Tab Descriptions */}
+          <div className="mt-4">
+            {Object.entries(scopeData[selectedScope].tabs).map(
+              ([tab, description]) => (
+                <div key={tab} className="bg-zinc-200 p-4 rounded-lg mt-2">
+                  <h3 className="text-2xl font-semibold text-blue-600">
+                    {tab}
+                  </h3>
+                  <p className="text-lg text-black">{description}</p>
+                </div>
+              )
+            )}
+          </div>
+
+          <button className="p-5 text-2xl font-bold bg-blue-500 text-white rounded-md ml-auto mt-6 block">
+            Calculate Carbon Emitted
+          </button>
+        </div>
+      )}
+
+      {/* Display All Related Components */}
+      <div className="flex items-start space-x-6 p-6 text-white">
+        {/* Render Components Based on Selected Scope */}
+        <div className="flex-1 p-6 bg-gray-800 rounded-lg shadow-lg">
+          {selectedScope === "Scope1" && (
+            <div className="flex space-x-4">
+              <FuelsComponent />
+              <BioEnergyComponent />
+              <RefrigerantsComponent />
+              <PassengerVehicleComponent />
+              <DeliveryVehicleComponent />
+            </div>
+          )}
+          {selectedScope === "Scope2" && (
+            <div className="flex space-x-4">
+              <DistrictCooling />
+              <Electricity />
+              <EletricityForEvs />
+              <HeatAndSteam />
+            </div>
+          )}
+          {selectedScope === "Scope3" && (
+            <div className="flex space-x-4">
+              <MaterialUse />
+              <WasteWater />
+              <Water />
+            </div>
+          )}
+        </div>
+      </div>
